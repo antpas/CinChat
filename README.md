@@ -66,6 +66,7 @@ Describe and show how to run the tests with code examples.
     - ``` npm install morgan --save```
     - ``` npm install errorhandler --save```
     - ``` npm install method-override --save ```
+    - ```npm install pug --save```
 
     - ``` npm install @types/cookie-parser --save-dev npm install @types/morgan --save-dev npm install @types/errorhandler --save-dev npm install @types/method-override --save-dev ```
 
