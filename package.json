@@ -1,0 +1,38 @@
+{
+  "name": "cinchat",
+  "version": "1.0.0",
+  "description": "CinChat is a chatbot website that helps users find movies they want to watch.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "grunt": "grunt",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antpas/CinChat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antpas/CinChat/issues"
+  },
+  "homepage": "https://github.com/antpas/CinChat#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-ts": "^6.0.0-beta.19",
+    "grunt-tslint": "^5.0.2",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  },
+  "devDependencies": {
+    "@types/debug": "0.0.29",
+    "@types/express": "^4.0.33",
+    "@types/node": "^6.0.46",
+    "grunt": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0"
+  }
+}

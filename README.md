@@ -37,6 +37,27 @@ Show what the library does as concisely as possible, developers should be able t
 ## Tests
 Describe and show how to run the tests with code examples.
 
+## Setup Project
+### Node.js
+- Download Node.js and Express
+- Install:
+
+    - ```npm init```
+
+    - ```npm install express body-parser```
+
+    - ``` npm install @types/node@6.0.46 @types/express@4.0.33 @types/debug@0.0.29 --save-dev ```
+
+- Install TypeSCript
+    - ```npm install typescript --save```
+
+-Install Grunt:
+
+- ```npm install grunt --save-dev```
+- ```npm install grunt-contrib-copy --save-dev```
+- ```npm install grunt-ts --save-dev```
+- ```npm install grunt-contrib-watch --save-dev ```
+- ```touch gruntfile.js```
 ## How to use?
 If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
 
