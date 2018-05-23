@@ -4,7 +4,7 @@
   "description": "CinChat is a chatbot website that helps users find movies they want to watch.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "grunt": "grunt",
     "start": "node ./bin/www"
   },
