@@ -47,7 +47,7 @@ export class IndexRoute extends BaseRoute {
    */
   public index(req: Request, res: Response, next: NextFunction) {
     //set custom title
-    this.title = "Home | CS591";
+    this.title = "Home  |  CS591";
 
     //set options
     let options: Object = {
