@@ -51,13 +51,25 @@ Describe and show how to run the tests with code examples.
 - Install TypeSCript
     - ```npm install typescript --save```
 
--Install Grunt:
+- Install Grunt:
 
-- ```npm install grunt --save-dev```
-- ```npm install grunt-contrib-copy --save-dev```
-- ```npm install grunt-ts --save-dev```
-- ```npm install grunt-contrib-watch --save-dev ```
-- ```touch gruntfile.js```
+    - ```npm install grunt --save-dev```
+    - ```npm install grunt-contrib-copy --save-dev```
+    - ```npm install grunt-ts --save-dev```
+    - ```npm install grunt-contrib-watch --save-dev ```
+    - ```touch gruntfile.js```
+
+
+- Middleware Dependencies 
+    - ``` npm install body-parser --save```
+    - ``` npm install cookie-parser --save```
+    - ``` npm install morgan --save```
+    - ``` npm install errorhandler --save```
+    - ``` npm install method-override --save ```
+
+    - ``` npm install @types/cookie-parser --save-dev npm install @types/morgan --save-dev npm install @types/errorhandler --save-dev npm install @types/method-override --save-dev ```
+
+
 ## How to use?
 If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
 
