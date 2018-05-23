@@ -55,4 +55,17 @@ node_modules/
 #Package-Lock JSON
 package-lock.json
 
+#pug
+*.html
+/dist/*
+
+#TypeScript
+*.js
+.baseDir.ts
+
+#TS Cache
+.tscache/*
+
+
+
 
