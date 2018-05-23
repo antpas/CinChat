@@ -7,29 +7,29 @@ import { BaseRoute } from "./route";
  *
  * @class User
  */
-export class IndexRoute extends BaseRoute {
+export class UserRoute extends BaseRoute {
 
   /**
    * Create the routes.
    *
-   * @class IndexRoute
+   * @class UserRoute
    * @method create
    * @static
    */
   public static create(router: Router) {
     //log
-    console.log("[IndexRoute::create] Creating index route.");
+    console.log("[UserRoute::create] Creating user route.");
 
     //add home page route
-    router.get("/", (req: Request, res: Response, next: NextFunction) => {
-      new IndexRoute().index(req, res, next);
+    router.get("/users", (req: Request, res: Response, next: NextFunction) => {
+      new UserRoute().users(req, res, next);
     });
   }
 
   /**
    * Constructor
    *
-   * @class IndexRoute
+   * @class UserRoute
    * @constructor
    */
   constructor() {
@@ -37,25 +37,25 @@ export class IndexRoute extends BaseRoute {
   }
 
   /**
-   * The home page route.
+   * The user page route.
    *
-   * @class IndexRoute
-   * @method index
+   * @class UserRoute
+   * @method users
    * @param req {Request} The express Request object.
    * @param res {Response} The express Response object.
    * @next {NextFunction} Execute the next method.
    */
-  public index(req: Request, res: Response, next: NextFunction) {
+  public users(req: Request, res: Response, next: NextFunction) {
     //set custom title
-    this.title = "Home | CS591";
+    this.title = "User | CS591";
 
     //set options
     let options: Object = {
-      "message": "Base Website"
+      "message": "User Page"
     };
 
     //render template
-    this.render(req, res, "index", options);
+    this.render(req, res, "users", options);
   }
 }
 

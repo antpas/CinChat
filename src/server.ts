@@ -6,6 +6,7 @@ import * as path from "path";
 import * as errorHandler from "errorhandler";
 
 import { IndexRoute } from "./routes/index";
+import { UserRoute } from "./routes/users";
 
 /**
  * The server.
@@ -109,6 +110,9 @@ export class Server {
 
     //IndexRoute
     IndexRoute.create(router);
+
+    //UserRoute
+    UserRoute.create(router);
 
     //use router middleware
     this.app.use(router);
