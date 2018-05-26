@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const addmovie = require('./controllers/addmovie');
+const getmovieinfo = require('./controllers/getmovieinfo');
 
 
 // Connect mongoose to our database
@@ -28,11 +29,12 @@ app.use(bodyParser.json());
 */
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/getmovieinfo', getmovieinfo);
+app.use('/addmovie', addmovie);
+
 app.get('/', (req,res) => {
     res.send("Hello");
-})
-
-app.use('/addmovie', addmovie);
+});
 
 //Listen to port 3000
 app.listen(port, () => {
