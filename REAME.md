@@ -8,7 +8,6 @@ The project was created for Boston University's CS591 course in the Summer 1 sem
 Currently under development.
 
 [![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
-[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/akashnimare/foco?branch=master&svg=true)](https://ci.appveyor.com/project/akashnimare/foco/branch/master)
 
 ## Code style
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
@@ -39,17 +38,31 @@ Describe and show how to run the tests with code examples.
 
 ## Setup Project
 ### Node.js
-- Download Node.js and Express
-- Install:
+- Download Node.js and MongoDB
+- Install Node.js:
 
     - ```npm init```
 
     - ```npm install express body-parser```
 
     - ``` npm install @types/node@6.0.46 @types/express@4.0.33 @types/debug@0.0.29 --save-dev ```
+- MongoDB
+    - https://www.mongodb.com/download-center 
 
-- Install TypeSCript
+- Install TypeScript
     - ```npm install typescript --save```
+
+- Install Angular CLI
+    - ```npm install -g @angular/cli```
+
+
+- Middleware Dependencies 
+    - ``` npm install body-parser --save```
+    - ``` npm install express --save```
+    - ``` npm install path --save```
+    - ``` npm install mongoose --save```
+    - ``` npm install cors --save```
+    
 
 - Install Grunt:
 
@@ -59,16 +72,6 @@ Describe and show how to run the tests with code examples.
     - ```npm install grunt-contrib-watch --save-dev ```
     - ```touch gruntfile.js```
 
-
-- Middleware Dependencies 
-    - ``` npm install body-parser --save```
-    - ``` npm install cookie-parser --save```
-    - ``` npm install morgan --save```
-    - ``` npm install errorhandler --save```
-    - ``` npm install method-override --save ```
-    - ```npm install pug --save```
-
-    - ``` npm install @types/cookie-parser --save-dev npm install @types/morgan --save-dev npm install @types/errorhandler --save-dev npm install @types/method-override --save-dev ```
 
 
 ## How to use?
