@@ -60,7 +60,6 @@ package-lock.json
 /dist/*
 
 #TypeScript
-*.js
 .baseDir.ts
 
 #TS Cache
