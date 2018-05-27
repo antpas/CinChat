@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 //GET HTTP method to /addmovie
-const addmovie = require('../models/List');
+const addmovie = require('../models/list');
 
 //POST HTTP method to /addmovie
 router.post('/', (req,res,next) => {
