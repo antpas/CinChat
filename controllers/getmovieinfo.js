@@ -3,7 +3,7 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const router = express.Router();
-const MOVIE_API_KEY = ENV['MOVIE_API_KEY']
+const MOVIE_API_KEY = process.env.MOVIE_API_KEY
 //= require('../apiKey');
 
 router.use(bodyParser.json());
