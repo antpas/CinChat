@@ -27,7 +27,6 @@ router.post('/', (req,res) => {
 
             return res.json({
                 fulfillmentText: dataToSend,
-                displayText: dataToSend,
                 source: 'getmovieinfo'
             });
         });
