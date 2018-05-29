@@ -3,8 +3,8 @@ const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
 const router = express.Router();
-const MOVIE_API_KEY = process.env.MOVIE_API_KEY
-//const MOVIE_API_KEY = require('../apiKey');
+//const MOVIE_API_KEY = process.env.MOVIE_API_KEY
+const MOVIE_API_KEY = require('../apiKey');
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
@@ -25,11 +25,16 @@ router.post('/', (req,res) => {
             let dataToSend = movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some info on 'The Godfather' instead.\n` : '';
             dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
 
-            return res.json({
-                speech: dataToSend,
-                displayText: dataToSend,
-                source: 'getmovieinfo'
-            });
+            // return res.json({
+            //     speech: dataToSend,
+            //     displayText: dataToSend,
+            //     source: 'getmovieinfo'
+            // });
+
+            res.send(JSON.stringify({
+                "speech" : dataToSend,
+                "displayText" : dataToSend
+            })); 
         });
     }, (error) => {
         return res.json({
