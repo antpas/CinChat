@@ -26,31 +26,12 @@ router.post('/', (req,res) => {
             dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
 
             return res.json({
-                fulfillment: {
-                    fulfillmentText: dataToSend,
-                    messages: [
-                    {
-                        source: 'getmovieinfo',
-                        speech: [
-                            dataToSend
-                        ],
-                        displayText: dataToSend
-                    }
-                    ]
-                    
-                }
-
+                fulfillmentText: dataToSend,
+                speech: dataToSend,
+                displayText: dataToSend,
+                source: 'getmovieinfo'
             });
 
-            // "fulfillment": {
-            //     "speech": "You can now validate your account",
-            //     "messages": [
-            //       {
-            //         "speech": [
-            //           "You can now validate your account"
-            //         ],
-            //         "type": 0
-            //       }
         });
     }, (error) => {
         return res.json({
