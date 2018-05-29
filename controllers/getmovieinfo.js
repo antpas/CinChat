@@ -31,7 +31,6 @@ router.post('/', (req,res) => {
                 displayText: dataToSend,
                 source: 'getmovieinfo'
             });
-
         });
     }, (error) => {
         return res.json({
