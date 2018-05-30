@@ -50,7 +50,7 @@ Temporary Items
 apiKey.js
 
 #Node Modules
-node_modules/
+node_modules
 
 #Package-Lock JSON
 package-lock.json
@@ -68,3 +68,4 @@ package-lock.json
 
 
 
+node_modules/mongoose/History.md

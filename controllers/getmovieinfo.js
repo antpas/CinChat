@@ -1,6 +1,7 @@
 //Require the express package and use express.Router()
 const express = require('express');
 const http = require('http');
+var omdb = require('omdb');
 const bodyParser = require('body-parser');
 const router = express.Router();
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY
