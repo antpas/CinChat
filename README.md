@@ -30,52 +30,32 @@ Include logo/demo screenshot etc.
 ## Features
 Chat with bot to give it an idea of what mood you're in. Then it will recommend a movie based on your conversation.
 
-## Code Example
-Show what the library does as concisely as possible, developers should be able to figure out **how** your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+## Architecture
+Block diagram here
 
-## Tests
-Describe and show how to run the tests with code examples.
+## Screenshots
+Screenshots here
 
 ## Setup Project
-### Node.js
-- Download Node.js and MongoDB
+
 - Install Node.js:
-
-    - ```npm init```
-
-    - ```npm install express body-parser```
-
-    - ``` npm install @types/node@6.0.46 @types/express@4.0.33 @types/debug@0.0.29 --save-dev ```
+    ```javascript
+    npm init
+    npm install express body-parser --save
+    npm install @types/node@6.0.46 @types/express@4.0.33 @types/debug@0.0.29 --save
+    ```
 - MongoDB
     - https://www.mongodb.com/download-center 
 
-- Install TypeScript
-    - ```npm install typescript --save```
 
-- Install Angular CLI
-    - ```npm install -g @angular/cli```
-
-
-- Middleware Dependencies 
-    - ``` npm install body-parser --save```
-    - ``` npm install express --save```
-    - ``` npm install path --save```
-    - ``` npm install mongoose --save```
-    - ``` npm install cors --save```
+- Dependencies 
+    ```javascript
+    npm install
+    ```
     
 
-- Install Grunt:
-
-    - ```npm install grunt --save-dev```
-    - ```npm install grunt-contrib-copy --save-dev```
-    - ```npm install grunt-ts --save-dev```
-    - ```npm install grunt-contrib-watch --save-dev ```
-    - ```touch gruntfile.js```
-
-
-
 ## How to use?
-If people like your project they’ll want to learn how they can use it. To do so include step by step guide to use your project.
+Go to https://cinchat.herokuapp.com/. Use CinChat and provide feedback on this repo.
 
 ## Credits
 Developed by Anthony Pasquariello.
