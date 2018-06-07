@@ -1,11 +1,11 @@
 //Require the express package and use express.Router()
 const express = require('express');
 const http = require('http');
-var omdb = require('omdb');
+const imdb = require('imdb-api');
 const bodyParser = require('body-parser');
 const router = express.Router();
-const MOVIE_API_KEY = process.env.MOVIE_API_KEY
-//const MOVIE_API_KEY = require('../apiKey');
+//const MOVIE_API_KEY = process.env.MOVIE_API_KEY
+const MOVIE_API_KEY = require('../apiKey');
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({
@@ -14,30 +14,23 @@ router.use(bodyParser.urlencoded({
 
 router.post('/', (req,res) => {
 
-    const movieToSearch = req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.movie ? req.body.queryResult.parameters.movie : 'The Godfather';
-    const reqUrl = encodeURI(`http://www.omdbapi.com/?t=${movieToSearch}&apikey=${MOVIE_API_KEY}`);
-    http.get(reqUrl, (responseFromAPI) => {
-        let completeResponse = '';
-        responseFromAPI.on('data', (chunk) => {
-            completeResponse += chunk;
-        });
-        responseFromAPI.on('end', () => {
-            const movie = JSON.parse(completeResponse);
-            let dataToSend = movieToSearch === 'The Godfather' ? `I don't have the required info on that. Here's some info on 'The Godfather' instead.\n` : '';
-            dataToSend += `${movie.Title} is a ${movie.Actors} starer ${movie.Genre} movie, released in ${movie.Year}. It was directed by ${movie.Director}`;
+    const movieInput = req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.movie ? req.body.queryResult.parameters.movie : 'The Godfather';
+    imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
+        console.log(movie)
 
-            return res.json({
-                fulfillmentText: dataToSend,
-                source: 'getmovieinfo'
-            });
-        });
-    }, (error) => {
-        return res.json({
-            source: 'getmovieinfo',
-            speech: 'Something went wrong!',
-            displayText: 'Something went wrong!'
-        });
     });
+
+});
+
+router.post('/search', (req,res) => {
+    
+    const movieToSearch = req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.movie ? req.body.queryResult.parameters.movie : 'The Godfather';
+    imdb.search({
+        title: movieToSearch
+      }, {
+        apiKey: MOVIE_API_KEY
+      }).then(console.log).catch(console.log);
+
 });
 
 

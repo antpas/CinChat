@@ -5,7 +5,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const addmovie = require('./controllers/addmovie');
 const getmovieinfo = require('./controllers/getmovieinfo');
-
+const weather = require('./controllers/weather');
+require('dotenv').config();
 
 // Connect mongoose to our database
 const config = require('./config/database');
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/getmovieinfo', getmovieinfo);
 app.use('/addmovie', addmovie);
+app.use('/weather', weather)
 
 app.get('/', (req,res) => {
     res.send("Hello");

@@ -65,6 +65,9 @@ package-lock.json
 #TS Cache
 .tscache/*
 
+#Envir Vars
+.env
+
 
 
 
