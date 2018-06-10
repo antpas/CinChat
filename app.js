@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -6,7 +7,6 @@ const mongoose = require('mongoose');
 const addmovie = require('./controllers/addmovie');
 const getmovieinfo = require('./controllers/getmovieinfo');
 const weather = require('./controllers/weather');
-require('dotenv').config();
 
 // Connect mongoose to our database
 const config = require('./config/database');
