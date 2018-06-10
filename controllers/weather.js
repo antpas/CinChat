@@ -6,6 +6,7 @@ weather = require('openweathermap-node')
 const OpenWeatherMapHelper = require("openweathermap-node");
 const synonyms = require("synonyms");
 var randomItem = require('random-item');
+const movielist = require('../models/list');
 const imdb = require('imdb-api');
 var async = require("async");
 const WEATHER_KEY = process.env.WEATHER_KEY
@@ -72,9 +73,25 @@ router.post('/', (req,res) => {
       function(err, result) {
         const movieInput = result;
         imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
-            console.log(movie)
-            res.json(movie)
+            
+            let newList = new movielist
+            movielist.findOneAndUpdate({title: movie.title}, movie, {upsert: true}, function (err2, doc) {
+                if (err2) 
+                {
+                    console.log(err2)
+                    res.json("Error")
+                } 
+                else 
+                {
+                    console.log(movie.title)
+                    res.json(movie)
+                }
+            });
         });
+        if(err){
+            res.json("Error")
+            console.log(err)
+        }
     });
 });
 

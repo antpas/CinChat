@@ -15,7 +15,7 @@ router.post('/', (req,res) => {
 
     const movieInput = req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.movie ? req.body.queryResult.parameters.movie : 'The Godfather';
     imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
-        console.log(movie)
+        console.log(movie.title)
         res.json(movie)
     });
 
@@ -29,7 +29,7 @@ router.post('/search', (req,res) => {
       }, {
         apiKey: MOVIE_API_KEY
       }).then(movie => {
-        console.log(movie)
+        console.log(movie.title)
         res.json(movie)
       });
 

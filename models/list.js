@@ -5,8 +5,36 @@ var Schema = mongoose.Schema;
 //Define BucketlistSchema with title, description and category
 const MovielistSchema = Schema({
     title: String,
-    description: String,
-    category: String
+    _year_data: String,
+    year: Number,
+    rated: String,
+    //released: Date,
+    runtime: String,
+    genres: String,
+    director: String,
+    writer: String,
+    actors: String,
+    plot: String,
+    languages: String,
+    country: String,
+    awards: String,
+    poster: String,
+    ratings:
+    [ { Source: String, Value: String },
+    { Source: String, Value: String },
+    { Source: String, Value: String } ],
+    metascore: String,
+    rating: String,
+    votes: String,
+    imdbid: String,
+    type: String,
+    dvd: String,
+    boxoffice: String,
+    production: String,
+    website: String,
+    response: String,
+    series: Boolean,
+    imdburl: String 
 });
 
 const Movielist = module.exports = mongoose.model('Movielist', MovielistSchema );
@@ -20,7 +48,6 @@ module.exports.getAllLists = (callback) => {
 //newList.save is used to insert the document into MongoDB
 module.exports.addList = (newList, callback) => {
     newList.save(callback);
-    //console.log(newList.save(callback))
 }
 
 //Here we need to pass an id parameter to BUcketList.remove
