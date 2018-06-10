@@ -16,7 +16,21 @@ router.post('/', (req,res) => {
     const movieInput = req.body.queryResult && req.body.queryResult.parameters && req.body.queryResult.parameters.movie ? req.body.queryResult.parameters.movie : 'The Godfather';
     imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
         console.log(movie.title)
-        res.json(movie)
+
+        let output = 
+        {
+            "fulfillmentText": movie.title,
+            "fulfillmentMessages": [
+                {
+                "card": {
+                    "title": movie.title,
+                    "subtitle": movie.metascore,
+                    "imageUri": movie.poster,
+                }
+                }
+            ]
+        }
+        res.json(output)
     });
 
 });
