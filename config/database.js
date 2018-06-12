@@ -1,3 +1,3 @@
 module.exports = {
-  database: 'mongodb://localhost:27017/movielist'
+  database: process.env.MONGO_DB
 }
