@@ -76,6 +76,7 @@ router.post('/', (req,res) => {
         imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
             
             let newList = new movielist
+            //movie.userID = user.id
             movielist.findOneAndUpdate({title: movie.title}, movie, {upsert: true}, function (err2, doc) {
                 if (err2) 
                 {

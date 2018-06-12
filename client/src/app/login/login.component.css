@@ -1,0 +1,24 @@
+.header{
+	text-align: center;
+}
+.container{
+	text-align: center;
+}
+.button{
+	background-color: #1da46d;
+	width: 150px;
+	height: 50px;
+	border-radius: 5px;
+	text-align: center;
+	display: inline-block;
+}
+.button input{
+	border: none;
+	background-color: transparent;
+	line-height: 50px;
+	font-family: serif;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: bold;
+	cursor: pointer;
+}
