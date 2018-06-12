@@ -5,10 +5,10 @@ const router = express.Router();
 weather = require('openweathermap-node')
 const OpenWeatherMapHelper = require("openweathermap-node");
 const synonyms = require("synonyms");
-var randomItem = require('random-item');
-const movielist = require('../models/list');
+const randomItem = require('random-item');
+const movielist = require('../models/movie');
 const imdb = require('imdb-api');
-var async = require("async");
+const async = require("async");
 const WEATHER_KEY = process.env.WEATHER_KEY
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY
 

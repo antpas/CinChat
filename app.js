@@ -1,70 +1,53 @@
+require('dotenv').config()
 const express = require('express');
-require('dotenv').config();
 const path = require('path');
-const cors = require('cors');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
 const bodyParser = require('body-parser');
-const passport = require('passport');
-const session = require('express-session');
+const morgan = require('morgan');
 const mongoose = require('mongoose');
-const addmovie = require('./controllers/addmovie');
-const getmovieinfo = require('./controllers/getmovieinfo');
-const weather = require('./controllers/weather');
-const passportTwitter = require('./auth/twitter');
-
-// Connect mongoose to our database
+const passport = require('passport');
 const config = require('./config/database');
-mongoose.connect(config.database);
 
-
-//Initialize our app variable
+const api = require('./routes/api');
+const addmovie = require('./routes/addmovie');
+const getmovieinfo = require('./routes/getmovieinfo');
+const weather = require('./routes/weather');
 const app = express();
 
-//Declaring Port
-const port = 3000;
+mongoose.Promise = require('bluebird');
+mongoose.connect(config.database, { promiseLibrary: require('bluebird') })
+  .then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
 
-//Middleware for CORS
-app.use(cors());
-
-//Middleware for bodyparsing using both json and urlencoding
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(bodyParser.json());
-
-/*express.static is a built in middleware function to serve static files.
- We are telling express server public folder is the place to look for the static files
-*/
-app.use(express.static(path.join(__dirname, 'public')));
-
-
-app.use(session({
-    secret: 'keyboard cat',
-    resave: true,
-    saveUninitialized: true
-}));
 app.use(passport.initialize());
-app.use(passport.session());
 
-app.use('/getmovieinfo', getmovieinfo);
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({'extended':'false'}));
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use('/books', express.static(path.join(__dirname, 'dist')));
+app.use('/api', api);
 app.use('/addmovie', addmovie);
-app.use('/weather', weather)
+app.use('/getmovieinfo', getmovieinfo);
+app.use('/weather', weather);
 
-app.get('/auth/twitter', passportTwitter.authenticate('twitter'));
-
-app.get('/auth/twitter/callback',
-  passportTwitter.authenticate('twitter', { failureRedirect: '/login' }),
-  function(req, res) {
-    // Successful authentication
-    res.json(req.user);
-  });
-
-app.get('/login', function(req, res, next) {
-    res.send('Go back and register!');
-  });
-
-app.get('/', function(req, res, next) {
-    res.render('index');
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  let err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
-  
-//Listen to port 3000
-app.listen(process.env.PORT || port, () => {
-    console.log(`Starting the server at port ${process.env.PORT|| port}`);
+
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
+
+module.exports = app;

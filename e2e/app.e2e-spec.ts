@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('angular-firebase-login App', () => {
+describe('mean-secure App', () => {
   let page: AppPage;
 
   beforeEach(() => {

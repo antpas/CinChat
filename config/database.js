@@ -1,3 +1,4 @@
 module.exports = {
-    database: 'mongodb://localhost:27017/movielist'
+  'secret':'meansecure',
+  database: 'mongodb://localhost:27017/movielist'
 }
