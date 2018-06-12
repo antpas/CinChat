@@ -1,5 +1,4 @@
-const SECRET_LOCAL = process.env.SECRET_LOCAL
-
+let SECRET_LOCAL_KEY = process.env.SECRET_LOCAL
 
 const JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -10,7 +9,7 @@ const User = require('../models/user');
 module.exports = function(passport) {
   let opts = {};
   opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme("jwt");
-  opts.secretOrKey = process.env.SECRET_LOCAL;
+  opts.secretOrKey = SECRET_LOCAL_KEY;
   passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     User.findOne({id: jwt_payload.id}, function(err, user) {
           if (err) {

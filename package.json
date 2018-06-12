@@ -32,13 +32,16 @@
     "jsonwebtoken": "^8.1.1",
     "mongoose": "^5.0.5",
     "morgan": "^1.9.0",
+    "moviedb": "^0.2.10",
     "openweathermap-node": "^1.1.2",
     "passport": "^0.4.0",
     "passport-jwt": "^3.0.1",
     "random-item": "^1.0.0",
+    "request": "^2.87.0",
     "rxjs": "^5.5.2",
     "serve-favicon": "^2.4.5",
     "synonyms": "^1.0.1",
+    "tmdbv3": "^0.1.2",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

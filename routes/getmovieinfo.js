@@ -2,6 +2,8 @@
 const express = require('express');
 const http = require('http');
 const imdb = require('imdb-api');
+let moviedbKey = process.env.MOVIE_DB_KEY
+const MovieDB = require('moviedb')(moviedbKey);
 const bodyParser = require('body-parser');
 const router = express.Router();
 const MOVIE_API_KEY = process.env.MOVIE_API_KEY
@@ -47,6 +49,11 @@ router.post('/search', (req,res) => {
         console.log(movie.title)
         res.json(movie)
       });
+
+});
+
+router.post('/popular', (req,res) => {
+
 
 });
 

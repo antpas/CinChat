@@ -5,20 +5,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BookComponent } from './book/book.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'books',
-    component: BookComponent,
-    data: { title: 'Book List' }
-  },
   {
     path: 'login',
     component: LoginComponent,
     data: { title: 'Login' }
+  },
+  {
+    path: 'main',
+    component: MainPageComponent,
+    data: { title: 'Main Page' }
   },
   {
     path: 'signup',
@@ -26,7 +26,7 @@ const appRoutes: Routes = [
     data: { title: 'Sign Up' }
   },
   { path: '',
-    redirectTo: '/books',
+    redirectTo: '/main',
     pathMatch: 'full'
   }
 ];
@@ -34,9 +34,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const User = require("../models/user");
-const Movie = require("../models/movie");
+const Movie = require("./models/movie");
 
 router.post('/signup', function(req, res) {
   if (!req.body.username || !req.body.password) {
