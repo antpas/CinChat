@@ -1,12 +1,12 @@
 require('dotenv').config()
 const express = require('express');
+const passport = require('passport');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const passport = require('passport');
 const config = require('./config/database');
 
 const api = require('./routes/api');

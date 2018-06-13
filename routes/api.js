@@ -1,17 +1,17 @@
-const mongoose = require('mongoose');
-const passport = require('passport');
-const config = require('../config/database');
+var mongoose = require('mongoose');
+var passport = require('passport');
+var config = require('../config/database');
 require('../config/passport')(passport);
-const express = require('express');
-const jwt = require('jsonwebtoken');
-const router = express.Router();
-const User = require("../models/user");
+var express = require('express');
+var jwt = require('jsonwebtoken');
+var router = express.Router();
+var User = require("../models/user");
 
 router.post('/signup', function(req, res) {
   if (!req.body.username || !req.body.password) {
     res.json({success: false, msg: 'Please pass username and password.'});
   } else {
-    let newUser = new User({
+    var newUser = new User({
       username: req.body.username,
       password: req.body.password
     });
@@ -38,7 +38,7 @@ router.post('/signin', function(req, res) {
       user.comparePassword(req.body.password, function (err, isMatch) {
         if (isMatch && !err) {
           // if user is found and password is right create a token
-          let token = jwt.sign(user.toJSON(), config.secret);
+          var token = jwt.sign(user.toJSON(), config.secret);
           // return the information including token as JSON
           res.json({success: true, token: 'JWT ' + token});
         } else {
@@ -49,35 +49,10 @@ router.post('/signin', function(req, res) {
   });
 });
 
-router.post('/book', passport.authenticate('jwt', { session: false}), function(req, res) {
-  let token = getToken(req.headers);
+router.get('/main', passport.authenticate('jwt', { session: false}), function(req, res) {
+  var token = getToken(req.headers);
   if (token) {
-    console.log(req.body);
-    let newBook = new Book({
-      isbn: req.body.isbn,
-      title: req.body.title,
-      author: req.body.author,
-      publisher: req.body.publisher
-    });
-
-    newBook.save(function(err) {
-      if (err) {
-        return res.json({success: false, msg: 'Save book failed.'});
-      }
-      res.json({success: true, msg: 'Successful created new book.'});
-    });
-  } else {
-    return res.status(403).send({success: false, msg: 'Unauthorized.'});
-  }
-});
-
-router.get('/book', passport.authenticate('jwt', { session: false}), function(req, res) {
-  let token = getToken(req.headers);
-  if (token) {
-    Book.find(function (err, books) {
-      if (err) return next(err);
-      res.json(books);
-    });
+    res.json(true)
   } else {
     return res.status(403).send({success: false, msg: 'Unauthorized.'});
   }
@@ -85,7 +60,7 @@ router.get('/book', passport.authenticate('jwt', { session: false}), function(re
 
 getToken = function (headers) {
   if (headers && headers.authorization) {
-    let parted = headers.authorization.split(' ');
+    var parted = headers.authorization.split(' ');
     if (parted.length === 2) {
       return parted[1];
     } else {

@@ -19,7 +19,7 @@ router.post('/', (req,res) => {
     imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
         console.log(movie.title)
         let outText = movie.title + " was released in " + movie.year + " and directed by " + movie.director + ". " +
-        movie.title + " was " + movie.awards  + "The synopsis is: " + movie.plot;
+        movie.title + " was " + movie.awards;
         let output = 
         {
             "fulfillmentText": outText,

@@ -1,11 +1,8 @@
-let SECRET_LOCAL_KEY = process.env.SECRET_LOCAL
+const JwtStrategy = require('passport-jwt').Strategy;
+const ExtractJwt = require('passport-jwt').ExtractJwt;
 
-const JwtStrategy = require('passport-jwt').Strategy,
-    ExtractJwt = require('passport-jwt').ExtractJwt;
-
-// load up the user model
 const User = require('../models/user');
-var config = require('../config/database'); // get db config file
+var config = require('../config/database');
 
 module.exports = function(passport) {
   let opts = {};
