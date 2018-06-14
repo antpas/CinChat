@@ -13,7 +13,6 @@ export class DialogflowService {
   constructor(private http: Http){}
 
   public getResponse(query: string){
-    console.log(this.token)
     let data = {
       query : query,
       lang: 'en',
