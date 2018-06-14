@@ -1,3 +1,4 @@
+import { Message } from '@app/models';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from "@angular/router";
@@ -6,13 +7,22 @@ import { tap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
 @Component({
-  selector: 'app-main-page',
+  selector: 'app-root',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
+  public message : Message;
+  public messages : Message[];
 
-  constructor(private http: HttpClient, private router: Router) { }
+
+   constructor(private http: HttpClient, private router: Router)
+  {
+    this.message = new Message('', 'assets/images/user.png');
+    this.messages = [
+      new Message('Welcome to chatbot universe', 'assets/images/bot.png', new Date())
+    ];
+  }
 
   ngOnInit() {
     let httpOptions = {
@@ -26,10 +36,11 @@ export class MainPageComponent implements OnInit {
       }
     });
   }
-
+  
   logout() {
     localStorage.removeItem('jwtToken');
     this.router.navigate(['login']);
   }
-
 }
+
+

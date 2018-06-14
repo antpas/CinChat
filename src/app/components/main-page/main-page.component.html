@@ -1,0 +1,8 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <h1>CinChat <button class="btn btn-success" (click)="logout()">Logout</button></h1>
+  <div  class="chatform">
+    <message-list [messages]="messages"></message-list>
+    <message-form [message]="message" [messages]="messages"></message-form>
+  </div>
+</div>
