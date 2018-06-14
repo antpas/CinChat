@@ -8,11 +8,12 @@ import { environment } from '@env/environment';
 export class DialogflowService {
 
   private baseURL: string = "https://api.dialogflow.com/v1/query?v=20150910";
-  private token: string = "46d6309d959c4c219c017c677a7c7542";
+  private token: string = environment.token;
 
   constructor(private http: Http){}
 
   public getResponse(query: string){
+    console.log(this.token)
     let data = {
       query : query,
       lang: 'en',
