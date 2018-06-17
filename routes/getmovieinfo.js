@@ -63,9 +63,12 @@ router.post('/', (req,res) => {
                     listMovies = listMovies + " " + movie.results[i].title + " " + "(" + movie.results[i].year + "), " 
                 }
                 outText = "Which one of these?" + listMovies
-                res.json(outText)
+                output = 
+                {
+                    "fulfillmentText": outText,
+                }
+                res.json(output)
         });
-          //res.json("TEst")
     }
     else{
         output = "test"
