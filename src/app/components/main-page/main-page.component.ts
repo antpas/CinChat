@@ -20,7 +20,7 @@ export class MainPageComponent {
   {
     this.message = new Message('', 'assets/images/user.png');
     this.messages = [
-      new Message('Welcome to chatbot universe', 'assets/images/bot.png', new Date())
+      new Message('Welcome to CinChat!', 'assets/images/bot.png', new Date())
     ];
   }
 
@@ -40,6 +40,9 @@ export class MainPageComponent {
   logout() {
     localStorage.removeItem('jwtToken');
     this.router.navigate(['login']);
+  }
+  history(){
+    this.router.navigate(['history']);
   }
 }
 

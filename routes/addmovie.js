@@ -26,14 +26,25 @@ router.post('/', (req,res,next) => {
 });
 
 router.get('/',(req,res) => {
-    addmovie.getAllLists((err, lists)=> {
+
+    addmovie.find((err, movies)=> {
         if(err) {
             res.json({success:false, message: `Failed to load all lists. Error: ${err}`});
         }
         else {
-            res.write(JSON.stringify({success: true, lists:lists},null,2));
-            res.end();
-
+            let output = {
+                "title": movies.title,
+                "director": movies.director,
+                "year": movies.year,
+                "genre": movies.genre,
+                "url": movies.imdburl
+            }
+            let test = []
+            for(let i=0; i < movies.length; i++){
+                test[i] = (({title, director, year, genre, imdburl}) => ({title, director, year, genre, imdburl}))(movies[i]);
+            }
+            
+            res.json(test);
     }
     });
 });

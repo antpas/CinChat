@@ -10,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { HistoryComponent } from './components/history/history.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 const appRoutes: Routes = [
   {
@@ -27,6 +29,11 @@ const appRoutes: Routes = [
     component: SignupComponent,
     data: { title: 'Sign Up' }
   },
+  {
+    path: 'history',
+    component: HistoryComponent,
+    data: { title: 'History' }
+  },
   { path: '',
     redirectTo: '/main',
     pathMatch: 'full'
@@ -41,13 +48,16 @@ const appRoutes: Routes = [
     MessageItemComponent,
     LoginComponent,
     SignupComponent,
-    MainPageComponent
+    MainPageComponent,
+    HistoryComponent,
+    HistoryComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     HttpClientModule,
+    Ng2SmartTableModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
