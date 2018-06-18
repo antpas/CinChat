@@ -2,6 +2,7 @@
 const express = require('express');
 const http = require('http');
 const imdb = require('imdb-api');
+const movielist = require('../models/movie');
 const moviedbKey = process.env.MOVIE_DB_KEY
 const MovieDB = require('moviedb')(moviedbKey);
 const bodyParser = require('body-parser');
@@ -30,7 +31,23 @@ function returnMultMovies(movies) {
         "fulfillmentText": outText,
     }
     return output
- } 
+} 
+
+function addToDB(movie){
+    let newList = new movielist
+    //movie.userID = user.id
+    movielist.findOneAndUpdate({title: movie.title}, movie, {upsert: true}, function (err2, doc) {
+        if (err2) 
+        {
+            console.log(err2)
+            res.json("Error")
+        } 
+        else 
+        {
+            console.log("Added to DB!")
+        }
+    });
+}
 
 router.post('/', (req,res) => {
     
@@ -59,6 +76,7 @@ router.post('/', (req,res) => {
                     }
                 ]
             }
+            addToDB(movie)
             res.json(output)
         });
     }
@@ -71,42 +89,42 @@ router.post('/', (req,res) => {
     }
     else if(action == "genre"){
         let apiURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + moviedbKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres="
-        if(parameter.romance == "romance"){
+        if(parameter.romance.replace(/ /g,'') == "romance"){
             apiURL = apiURL + '10749' //romance id
             request(apiURL, function (error, response, movie) {
                 output = returnMultMovies(JSON.parse(movie))                
                 res.json(output)
             });
         }
-        else if(parameter.drama == "drama"){
+        else if(parameter.drama.replace(/ /g,'') == "drama"){
             apiURL = apiURL + '18'
             request(apiURL, function (error, response, movie) {
                 output = returnMultMovies(JSON.parse(movie))                
                 res.json(output)
             });
         }
-        else if(parameter.action == "action"){
+        else if(parameter.action.replace(/ /g,'') == "action"){
             apiURL = apiURL + '28'
             request(apiURL, function (error, response, movie) {
                 output = returnMultMovies(JSON.parse(movie))                
                 res.json(output)
             });
         }
-        else if(parameter.comedy == "comedy"){
+        else if(parameter.comedy.replace(/ /g,'') == "comedy"){
             apiURL = apiURL + '35'
             request(apiURL, function (error, response, movie) {
                 output = returnMultMovies(JSON.parse(movie))                
                 res.json(output)
             });
         }
-        else if(parameter.documentary == "documentary"){
+        else if(parameter.documentary.replace(/ /g,'') == "documentary"){
             apiURL = apiURL + '99'
             request(apiURL, function (error, response, movie) {
                 output = returnMultMovies(JSON.parse(movie))                
                 res.json(output)
             });
         }
-        else if(parameter.scifi == "scifi"){
+        else if(parameter.scifi.replace(/ /g,'') == "scifi"){
             apiURL = apiURL + '878'
             request(apiURL, function (error, response, movie) {
                 output = returnMultMovies(JSON.parse(movie))                
