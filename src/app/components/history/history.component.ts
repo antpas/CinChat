@@ -1,8 +1,10 @@
 import {Component, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServerDataSource } from 'ng2-smart-table';
+import { Http,Headers } from '@angular/http';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { Router } from "@angular/router";
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +12,11 @@ import { Router } from "@angular/router";
   styleUrls: ['./history.component.scss']
 })
 
+@Injectable()
 export class HistoryComponent { 
   source: ServerDataSource;
 
-  constructor(private router: Router, http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient, private httpx: Http) {
     this.source = new ServerDataSource(http, { endPoint: 'https://cinchat.herokuapp.com/addmovie' });
   }
 
@@ -44,8 +47,12 @@ export class HistoryComponent {
     this.router.navigate(['main']);
   }
   
-  onDeleteConfirm(title) {
-    console.log(title)
-    //this.router.navigate
+  onDeleteConfirm(title){
+      let URI = `https://cinchat.herokuapp.com/addmovie/${title}`;
+      let headers = new Headers;
+      headers.append('Content-Type', 'application/json');
+      return this.httpx.delete(URI, {headers})
+      .map(res => res.json());
+      this.router.navigate(['history']);
   }
 }

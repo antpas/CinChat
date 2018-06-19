@@ -52,7 +52,7 @@ router.get('/',(req,res) => {
 router.delete('/:title', (req,res,next)=> {
       let title = req.params.title;
     //Call the model method deleteList
-      addmovie.remove(title,(err,list) => {
+      addmovie.deleteOne(title,(err,list) => {
           if(err) {
               res.json({success:false, message: `Failed to delete the list. Error: ${err}`});
           }
