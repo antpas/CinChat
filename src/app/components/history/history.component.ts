@@ -21,8 +21,9 @@ export class HistoryComponent {
   }
 
   settings = {
-    delete: {
-      confirmDelete: true,
+    actions: { 
+      // delete: false,
+      edit: false
     },
     columns: {
       title: {
@@ -35,7 +36,7 @@ export class HistoryComponent {
         title: 'Year'
       },
       actors: {
-        actors: 'Actors'
+        title: 'Actors'
       },
       imdburl:{
         title: "IMDB URL"
@@ -47,12 +48,11 @@ export class HistoryComponent {
     this.router.navigate(['main']);
   }
   
-  onDeleteConfirm(title){
-      let URI = `https://cinchat.herokuapp.com/addmovie/${title}`;
+  clear(){
+      let URI = `https://cinchat.herokuapp.com/addmovie/`;
       let headers = new Headers;
       headers.append('Content-Type', 'application/json');
       return this.httpx.delete(URI, {headers})
       .map(res => res.json());
-      //this.router.navigate(['history']);
   }
 }
