@@ -18,10 +18,10 @@ export class HistoryComponent {
   }
 
   settings = {
+    delete: {
+      confirmDelete: true,
+    },
     columns: {
-      delete: {
-        confirmDelete: true,
-      },
       title: {
         title: 'Title'
       },
@@ -32,7 +32,7 @@ export class HistoryComponent {
         title: 'Year'
       },
       actors: {
-        actors: 'Actor(s)'
+        actors: 'Actors'
       },
       imdburl:{
         title: "IMDB URL"

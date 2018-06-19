@@ -43,7 +43,6 @@ router.get('/',(req,res) => {
             for(let i=0; i < movies.length; i++){
                 test[i] = (({title, director, year, actors, imdburl}) => ({title, director, year, actors, imdburl}))(movies[i]);
             }
-            
             res.json(test);
     }
     });
