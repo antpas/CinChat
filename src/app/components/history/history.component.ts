@@ -1,10 +1,11 @@
 import {Component, Input} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServerDataSource } from 'ng2-smart-table';
-import { Http,Headers } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { Router } from "@angular/router";
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -53,10 +54,14 @@ export class HistoryComponent {
   }
   
   clear(){
-      let URI = `https://cinchat.herokuapp.com/addmovie/`;
-      // let headers = new Headers;
-      // headers.append('Content-Type', 'application/json');
-      return this.httpx.delete(URI) //{headers}
-      .map(res => res.json());
+  
+    this.http.delete('https://cinchat.herokuapp.com/addmovie').subscribe(data => {
+      console.log(data)
+      window.location.reload();
+    }, err => {
+      if(err) {
+        console.log(err)
+      }
+    });
   }
 }

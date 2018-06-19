@@ -12,6 +12,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { HistoryComponent } from './components/history/history.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const appRoutes: Routes = [
   {
@@ -64,7 +65,8 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
-    DialogflowService
+    DialogflowService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })
