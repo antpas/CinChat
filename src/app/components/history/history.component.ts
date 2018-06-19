@@ -53,6 +53,6 @@ export class HistoryComponent {
       headers.append('Content-Type', 'application/json');
       return this.httpx.delete(URI, {headers})
       .map(res => res.json());
-      this.router.navigate(['history']);
+      //this.router.navigate(['history']);
   }
 }
