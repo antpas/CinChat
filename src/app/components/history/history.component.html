@@ -2,4 +2,5 @@
     <button class="btn btn-success" (click)="home()">Home</button>
     <button class="btn btn-success" (click)="logout()">Logout</button>
 </h1>
-<ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+
+<ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>

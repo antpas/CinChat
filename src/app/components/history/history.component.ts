@@ -19,6 +19,9 @@ export class HistoryComponent {
 
   settings = {
     columns: {
+      delete: {
+        confirmDelete: true,
+      },
       title: {
         title: 'Title'
       },
@@ -28,8 +31,8 @@ export class HistoryComponent {
       year: {
         title: 'Year'
       },
-      genre: {
-        title: 'Genre'
+      actors: {
+        actors: 'Actor(s)'
       },
       imdburl:{
         title: "IMDB URL"
@@ -39,5 +42,13 @@ export class HistoryComponent {
 
   home(){
     this.router.navigate(['main']);
+  }
+  
+  onDeleteConfirm(event) {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
   }
 }
