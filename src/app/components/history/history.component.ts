@@ -22,7 +22,7 @@ export class HistoryComponent {
 
   settings = {
     actions: { 
-      // delete: false,
+      delete: false,
       edit: false
     },
     columns: {
@@ -39,8 +39,12 @@ export class HistoryComponent {
         title: 'Actors'
       },
       imdburl:{
-        title: "IMDB URL"
+        title: "IMDB URL",
+        type: "html"
       }
+    },
+    attr: {
+      class: 'table table-bordered'
     }
   };
 
@@ -50,9 +54,9 @@ export class HistoryComponent {
   
   clear(){
       let URI = `https://cinchat.herokuapp.com/addmovie/`;
-      let headers = new Headers;
-      headers.append('Content-Type', 'application/json');
-      return this.httpx.delete(URI, {headers})
+      // let headers = new Headers;
+      // headers.append('Content-Type', 'application/json');
+      return this.httpx.delete(URI) //{headers}
       .map(res => res.json());
   }
 }
