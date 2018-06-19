@@ -44,11 +44,8 @@ export class HistoryComponent {
     this.router.navigate(['main']);
   }
   
-  onDeleteConfirm(event) {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+  onDeleteConfirm(title) {
+    console.log(title)
+    //this.router.navigate
   }
 }

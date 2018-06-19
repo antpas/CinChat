@@ -48,21 +48,20 @@ router.get('/',(req,res) => {
     });
 });
 
-//DELETE HTTP method to /addmovie. Here, we pass in a param which is the object id.
-router.delete('/:id', (req,res,next)=> {
-  //access the parameter which is the id of the item to be deleted
-    let id = req.params.id;
-  //Call the model method deleteListById
-    addmovie.deleteListById(id,(err,list) => {
-        if(err) {
-            res.json({success:false, message: `Failed to delete the list. Error: ${err}`});
-        }
-        else if(list) {
-            res.json({success:true, message: "Deleted successfully"});
-        }
-        else
-            res.json({success:false});
-    })
-});
+//DELETE HTTP method to /addmovie. Here, we pass in a param which is the object title.
+router.delete('/:title', (req,res,next)=> {
+      let title = req.params.title;
+    //Call the model method deleteList
+      addmovie.remove(title,(err,list) => {
+          if(err) {
+              res.json({success:false, message: `Failed to delete the list. Error: ${err}`});
+          }
+          else if(list) {
+              res.json({success:true, message: "Deleted successfully"});
+          }
+          else
+              res.json({success:false});
+      })
+  });
 
 module.exports = router;
