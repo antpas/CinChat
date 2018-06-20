@@ -1,0 +1,11 @@
+<h1>
+    <img src="assets/images/logo.png">
+    <button class="btn btn-success" (click)="home()">Home</button>
+    <button class="btn btn-success" (click)="logout()">Logout</button>
+</h1>
+
+<ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+
+<div>
+    <button class="btn btn-success" (click)="clear()">Clear History</button>
+</div>
