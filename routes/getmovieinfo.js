@@ -69,13 +69,13 @@ router.post('/', (req,res) => {
     let output;
     let movieInput;
     let movieToSearch;
-
+    console.log(parameter)
     if(action == "weather")
     {
         //Asyncronous Call -> Get Weather to Search Movie
         async.waterfall([
             function(callback) {
-                let townName = "Boston"
+                let townName = parameter.city
                 let weatherType
                 let synArray = []
                 helper.getCurrentWeatherByCityName(townName, (err, currentWeather) => {
@@ -116,12 +116,12 @@ router.post('/', (req,res) => {
                         let temp1 = array1.concat(array2)
                         synArray = temp1.concat(array3)
                         let synWord = randomItem(synArray)
-                        callback(null, synWord, weatherType)   
+                        callback(null, synWord, weatherType,townName)   
                     }
                 });
             }
         ],
-        function(err, result, weatherType) {
+        function(err, result, weatherType,townName) {
             const movieInput = result;
             imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
                 
@@ -137,23 +137,23 @@ router.post('/', (req,res) => {
                     {
                         let outText
                         if(weatherType = "Rain"){
-                            outText = "Because of the rain in, " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            outText = "Because of the rain in " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
                         ". The metascore is: " + movie.metascore + "%";
                         }
                         else if(weatherType = "Snow"){
-                            outText = "Because of the snow in, " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            outText = "Because of the snow in " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
                             ". The metascore is: " + movie.metascore + "%";
                         }
                         else if(weatherType = "Bad"){
-                            outText = "Because of the overall bad weather in, " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            outText = "Because of the overall bad weather in " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
                             ". The metascore is: " + movie.metascore + "%";
                         }
                         else if(weatherType = "Cloud"){
-                            outText = "Because it's cloudy in , " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            outText = "Because it's cloudy in " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
                             ". The metascore is: " + movie.metascore + "%";
                         }
                         else if(weatherType = "Good"){
-                            outText = "Because it's pleasant in, " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            outText = "Because it's pleasant in " + townName + " I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
                             ". The metascore is: " + movie.metascore + "%";
                         }   
                         
