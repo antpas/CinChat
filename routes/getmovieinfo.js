@@ -135,8 +135,28 @@ router.post('/', (req,res) => {
                     } 
                     else 
                     {
-                        let outText = "Because of the " + weatherType + ", I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                        let outText
+                        if(weatherType = "Rain"){
+                            outText = "Because of the rain in, " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
                         ". The metascore is: " + movie.metascore + "%";
+                        }
+                        else if(weatherType = "Snow"){
+                            outText = "Because of the snow in, " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            ". The metascore is: " + movie.metascore + "%";
+                        }
+                        else if(weatherType = "Bad"){
+                            outText = "Because of the overall bad weather in, " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            ". The metascore is: " + movie.metascore + "%";
+                        }
+                        else if(weatherType = "Cloud"){
+                            outText = "Because it's cloudy in , " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            ". The metascore is: " + movie.metascore + "%";
+                        }
+                        else if(weatherType = "Good"){
+                            outText = "Because it's pleasant in, " + townName +" I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                            ". The metascore is: " + movie.metascore + "%";
+                        }   
+                        
                         let output = 
                         {
                             "fulfillmentText": outText
