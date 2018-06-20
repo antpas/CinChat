@@ -18,7 +18,7 @@ Include logo/demo screenshot etc.
 - [TypeScript](https://www.typescriptlang.org/)
 - [MongoDB](https://www.typescriptlang.org/)
 - [Express](https://expressjs.com/)
-- [Angular](https://angular.io/)
+- [Angular6](https://angular.io/)
 - [Node.js](https://nodejs.org/en/)
 
 <b>APIs</b>
@@ -26,6 +26,7 @@ Include logo/demo screenshot etc.
 - [OMDb](http://www.omdbapi.com/)
 - [OpenWeatherMap](https://openweathermap.org/)
 - [The Movie DB](https://www.themoviedb.org/?language=en)
+- [Google OAuth2](https://google.com)
 
 ## Features
 Chat with bot to give it an idea of what mood you're in. Then it will recommend a movie based on your conversation.
