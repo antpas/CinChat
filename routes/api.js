@@ -1,17 +1,16 @@
-var mongoose = require('mongoose');
-var passport = require('passport');
-var config = require('../config/database');
+let passport = require('passport');
+let config = require('../config/database');
 require('../config/passport')(passport);
-var express = require('express');
-var jwt = require('jsonwebtoken');
-var router = express.Router();
-var User = require("../models/user");
+let express = require('express');
+let jwt = require('jsonwebtoken');
+let router = express.Router();
+let User = require("../models/user");
 
 router.post('/signup', function(req, res) {
   if (!req.body.username || !req.body.password) {
     res.json({success: false, msg: 'Please pass username and password.'});
   } else {
-    var newUser = new User({
+    let newUser = new User({
       username: req.body.username,
       password: req.body.password
     });
@@ -38,7 +37,7 @@ router.post('/signin', function(req, res) {
       user.comparePassword(req.body.password, function (err, isMatch) {
         if (isMatch && !err) {
           // if user is found and password is right create a token
-          var token = jwt.sign(user.toJSON(), config.secret);
+          let token = jwt.sign(user.toJSON(), config.secret);
           // return the information including token as JSON
           res.json({success: true, token: 'JWT ' + token});
         } else {
@@ -50,7 +49,7 @@ router.post('/signin', function(req, res) {
 });
 
 router.get('/main', passport.authenticate('jwt', { session: false}), function(req, res) {
-  var token = getToken(req.headers);
+  let token = getToken(req.headers);
   if (token) {
     res.json(true)
   } else {
@@ -60,7 +59,7 @@ router.get('/main', passport.authenticate('jwt', { session: false}), function(re
 
 getToken = function (headers) {
   if (headers && headers.authorization) {
-    var parted = headers.authorization.split(' ');
+    let parted = headers.authorization.split(' ');
     if (parted.length === 2) {
       return parted[1];
     } else {

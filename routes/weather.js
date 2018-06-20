@@ -66,12 +66,12 @@ router.post('/', (req,res) => {
                     let temp1 = array1.concat(array2)
                     synArray = temp1.concat(array3)
                     let synWord = randomItem(synArray)
-                    callback(null, synWord)   
+                    callback(null, synWord, weatherType)   
                 }
             });
         }
       ],
-      function(err, result) {
+      function(err, result, weatherType) {
         const movieInput = result;
         imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
             
@@ -85,8 +85,14 @@ router.post('/', (req,res) => {
                 } 
                 else 
                 {
+                    let outText = "Because of the " + weatherType + ", I suggest " + movie.title + ". It was released in " + movie.year + " and directed by " + movie.director + 
+                    ". The metascore is: " + movie.metascore + "%";
+                    let output = 
+                    {
+                        "fulfillmentText": outText
+                    }
                     console.log(movie.title)
-                    res.json(movie)
+                    res.json(output)
                 }
             });
         });

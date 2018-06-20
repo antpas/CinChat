@@ -65,6 +65,11 @@ export class HistoryComponent {
   home(){
     this.router.navigate(['main']);
   }
+
+  logout() {
+    localStorage.removeItem('jwtToken');
+    this.router.navigate(['login']);
+  }
   
   clear(){
   

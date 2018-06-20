@@ -4,11 +4,14 @@ const passport = require('passport');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 
+const auth = require('./routes/auth')
 const api = require('./routes/api');
 const addmovie = require('./routes/addmovie');
 const getmovieinfo = require('./routes/getmovieinfo');
@@ -32,8 +35,10 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
   next();
 });
+
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/main', express.static(path.join(__dirname, 'dist')));
+app.use('auth', auth);
 app.use('/api', api);
 app.use('/addmovie', addmovie);
 app.use('/getmovieinfo', getmovieinfo);
