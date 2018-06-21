@@ -279,7 +279,7 @@ router.post('/', (req,res) => {
                 res.json({"fulfillmentText": outText})
             }
             else if(parameter.awards.replace(/ /g,'') == "awards"){
-                if(movie.awards == "n/a"){
+                if(movie.awards != "n/a"){
                     outText = movie.title + " has the following awards: " + movieInfo.awards
                     res.json({"fulfillmentText": outText})
                 }
