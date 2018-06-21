@@ -33,7 +33,7 @@ const MovielistSchema = Schema({
   website: String,
   response: String,
   series: Boolean,
-  imdburl: String 
+  imdburl: String
 });
 
 const Movielist = module.exports = mongoose.model('Movielist', MovielistSchema );

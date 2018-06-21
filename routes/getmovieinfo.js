@@ -69,7 +69,7 @@ router.post('/', (req,res) => {
     let output;
     let movieInput;
     let movieToSearch;
-    console.log(parameter)
+    console.log(action)
     if(action == "weather")
     {
         //Asyncronous Call -> Get Weather to Search Movie
@@ -270,9 +270,45 @@ router.post('/', (req,res) => {
                 res.json(output)
         });
     }
+    else if(action == "movie-intent.movie-intent-custom"){
+        movieInput = req.body.queryResult.outputContexts[0].parameters.movie
+        imdb.get(movieInput, {apiKey: MOVIE_API_KEY, timeout: 30000}).then(movie => {
+            let movieInfo = movie
+            if(parameter.director.replace(/ /g,'') == "director"){
+                outText = movie.title + " was directed by " + movieInfo.director + "."
+                res.json({"fulfillmentText": outText})
+            }
+            else if(parameter.awards.replace(/ /g,'') == "awards"){
+                if(movie.awards == "n/a"){
+                    outText = movie.title + " has the following awards: " + movieInfo.awards
+                    res.json({"fulfillmentText": outText})
+                }
+                else{
+                    outText = movie.title + " won no awards."
+                    res.json({"fulfillmentText": outText})
+                }
+            }
+            else if(parameter.plot.replace(/ /g,'') == "plot"){
+                outText = movieInfo.plot
+                res.json({"fulfillmentText": outText})
+            }
+            else if(parameter.year.replace(/ /g,'') == "year"){
+                outText = movie.title + " was released in " + movieInfo.year + "."
+                res.json({"fulfillmentText": outText})
+            }
+            else if(parameter.genre.replace(/ /g,'') == "genre"){
+                outText = movie.title + " has the following genre(s) " + movieInfo.genre + "."
+                res.json({"fulfillmentText": outText})
+            }
+            else{
+                outText = "Hmm. Not sure about that."
+                res.json({"fulfillmentText": outText})
+            }
+        })
+    }
     else{
-        output = "test"
-        res.json(output)
+        outText = "Hmm. Not sure about that. I'm trying to get better everyday!"
+        res.json({"fulfillmentText": outText})
     }
 });
 
