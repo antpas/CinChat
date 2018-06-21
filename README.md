@@ -48,6 +48,7 @@ Screenshots here
 
 - Install Dependencies:
     ```javascript
+    git clone https://github.com/antpas/CinChat.git
     npm install
     ```
 - MongoDB
