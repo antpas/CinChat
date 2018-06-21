@@ -30,7 +30,16 @@ Include logo/demo screenshot etc.
 - [Google OAuth2](https://google.com)
 
 ## Features
-Chat with bot to give it an idea of what mood you're in. Then it will recommend a movie based on your conversation.
+Chat with bot to ask it about movie information. It can also recommend a movie based on the current weather.
+- Commands to try:
+  - "Tell me about Star Wars"
+     - " Show me more"
+  - "Give me a movie based on the weather in Boston"
+  - "Show me romance movies"
+  - "Show me popular movies"
+  - "Who directed that?"
+  - "When was that released?"
+  - "Show me the plot"
 
 ## Screenshots
 Screenshots here
@@ -46,6 +55,7 @@ Screenshots here
 
 ## How to use?
 Go to https://cinchat.herokuapp.com/. Use CinChat and provide feedback on this repo.
+
 ## Grading Criteria 
 - MongoDB (Mongoose used)
   - User Table: User credential information.
