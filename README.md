@@ -55,7 +55,7 @@ Screenshots here
     - https://www.mongodb.com/download-center     
 
 ## How to use?
-Go to https://cinchat.herokuapp.com/. Use CinChat and provide feedback on this repo.
+Go to https://cinchat.herokuapp.com/. Use CinChat and provide feedback on this repo. (Give it a minute to load, Heroku Free is being used)
 
 ## Grading Criteria 
 - MongoDB (Mongoose used)
