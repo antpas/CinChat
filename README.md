@@ -59,7 +59,10 @@ Go to https://cinchat.herokuapp.com/. Use CinChat and provide feedback on this r
     - Multiple components
 - OAuth is used for authentication (Google) via Passport.
     - Local authentication is also implemented using JWTs.
-- 
+- This project has been deployed on Heroku.
+    - This allows for users to easily try it out!
+    - All APIs keys are loaded into backend using enviroment variables.
+     - Used [dotenv](https://github.com/motdotla/dotenv) for loading env variables.
 
 ## Credits
 Developed by Anthony Pasquariello.
