@@ -1,5 +1,6 @@
 ## CinChat
 CinChat is a chatbot website that helps users find movies they want to watch.
+<img src="https://github.com/antpas/CinChat/blob/master/src/assets/images/logo.png" alt="CinChat" align="right" />
 
 ## Motivation
 The project was created for Boston University's CS591 course in the Summer 1 semester. This project aims to build the website using the MEAN stack, using Typescript. This project also looks to act as a learning opportunity for various APIs and technologies.
@@ -45,7 +46,6 @@ Screenshots here
 
 ## How to use?
 Go to https://cinchat.herokuapp.com/. Use CinChat and provide feedback on this repo.
-
 ## Grading Criteria 
 - MongoDB (Mongoose used)
   - User Table: User credential information.
