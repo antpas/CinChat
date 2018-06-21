@@ -46,6 +46,21 @@ Screenshots here
 ## How to use?
 Go to https://cinchat.herokuapp.com/. Use CinChat and provide feedback on this repo.
 
+## Grading Criteria 
+- MongoDB (Mongoose used)
+  - User Table: User credential information.
+  - Movie Table: Movie history information.
+ - Node & Express
+    - No external APIs are called on the front end.
+    - Split up routes into files.
+- 5 external APIs used.
+- Angular6 used. 
+    - Calls backend routes via http.
+    - Multiple components
+- OAuth is used for authentication (Google) via Passport.
+    - Local authentication is also implemented using JWTs.
+- 
+
 ## Credits
 Developed by Anthony Pasquariello.
 Boston University CS591 Summer 2018.
