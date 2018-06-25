@@ -10,9 +10,6 @@ Finished for CS591 (June 2018).
 
 ## Code style
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
- 
-## Screenshots
-Include logo/demo screenshot etc.
 
 ## Tech/framework used
 <b>MEAN Stack</b>
@@ -42,7 +39,9 @@ Chat with bot to ask it about movie information. It can also recommend a movie b
   - "Show me the plot"
 
 ## Screenshots
-![alt text](https://github.com/antpas/CinChat/tree/master/src/assets/images/cinchat1.png)
+![alt text](https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat1.PNG)
+![alt text](https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat2.PNG)
+![alt text](https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat3.PNG)
 
 ## Setup Project
 
