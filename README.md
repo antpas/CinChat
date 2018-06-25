@@ -88,4 +88,4 @@ Boston University CS591 Summer 2018.
 
 ## License
 
-MIT © [Anthony Pasquariello](https://github.com/antpas)
+MIT © [Anthony Pasquariello](https://github.com/antpas/CinChat/blob/master/LICENSE)
