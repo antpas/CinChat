@@ -42,7 +42,7 @@ Chat with bot to ask it about movie information. It can also recommend a movie b
   - "Show me the plot"
 
 ## Screenshots
-Screenshots here
+![alt text](https://github.com/antpas/CinChat/tree/master/src/assets/images/cinchat1.png)
 
 ## Setup Project
 
