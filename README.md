@@ -39,9 +39,8 @@ Chat with bot to ask it about movie information. It can also recommend a movie b
   - "Show me the plot"
 
 ## Screenshots
-![alt text](https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat1.PNG)
-![alt text](https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat2.PNG)
-![alt text](https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat3.PNG)
+<img src="https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat1.PNG" width="40%" height = "40%">
+<img src="https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat2.PNG" width="40%" height = "40%">
 <img src="https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat3.PNG" width="40%" height = "40%">
 
 ## Setup Project
