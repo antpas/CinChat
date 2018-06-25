@@ -43,7 +43,7 @@ Chat with bot to ask it about movie information. It can also recommend a movie b
   <img src="https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat1.PNG" width="80%" height = "80%"> 
 </p>
 <p align="center">
-  <img src="https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat2.PNG" width="80%" height = "80%"> 
+  <img src="https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat2.PNG" width="100%" height = "100%"> 
 </p>
 <p align="center">
   <img src="https://github.com/antpas/CinChat/blob/master/src/assets/images/cinchat3.PNG" width="80%" height = "80%"> 
